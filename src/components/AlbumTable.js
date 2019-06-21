@@ -32,12 +32,12 @@ class AlbumTable extends Component {
                   />
                 </td>
                 <td>
-                  <Link to={"/albums/" + album.id} id={"test"}>{album.name}</Link>
+                  <Link to={"/albums/" + album.id}>{album.name}</Link>
                 </td>
                 <td>{album.artists.map(artist => artist.name).join("\n")}</td>
                 <td>{album.releaseDate}</td>
                 <td>
-                  <AlbumPopularity popularity={album.popularity} />
+                  <AlbumPopularity key={album.id} popularity={album.popularity} />
                 </td>
               </tr>
             );

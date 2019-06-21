@@ -4,14 +4,7 @@ import AlbumTable from "./AlbumTable";
 
 class AlbumsPage extends Component {
   render() {
-    // let toggleComponent;
     let { view, getView , isDefault} = this.props;
-
-    // if (view === 'card' && isDefault) {
-    //   toggleComponent = <AlbumCards albums={this.props.albums}/>
-    // } else if (view === 'table') {
-    //   toggleComponent = <AlbumTable albums={this.props.albums}/>
-    // }
 
     return (
       <section className="section">
@@ -22,13 +15,11 @@ class AlbumsPage extends Component {
             </div>
             <div className="column">
               <div className="buttons has-addons is-right">
-                {/* first button */}
                 <span className="button" onClick={()=>{getView('card')}}>
                   <span className="icon is-medium">
                     <i className="fas fa-th fa-1x" />
                   </span>
                 </span>
-                {/* second button */}
                 <span className="button is-selected is-primary" onClick={()=>{getView('table')}}>
                   <span className="icon is-medium">
                     <i className="fas fa-list fa-1x" />
@@ -37,7 +28,6 @@ class AlbumsPage extends Component {
               </div>
             </div>
           </div>
-          {/* {toggleComponent} */}
           {view === 'card' && isDefault ? <AlbumCards albums={this.props.albums}/> : <AlbumTable albums={this.props.albums}/> }
         </div>
       </section>

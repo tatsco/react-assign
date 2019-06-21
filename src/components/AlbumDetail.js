@@ -7,7 +7,6 @@ class AlbumDetail extends Component {
     if (!this.props.album) {
       return <Redirect to="/albums" />;
     }
-    console.log(this.props, 'albumdetail')
     return (
       <div>
         <nav className="breadcrumb is-large" aria-label="breadcrumbs">

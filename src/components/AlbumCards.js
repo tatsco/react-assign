@@ -4,7 +4,6 @@ import AlbumPopularity from "./AlbumPopularity";
 
 class AlbumCards extends Component {
   render() {
-
     return (
       <div className="columns is-mobile is-multiline ">
         {this.props.albums.map(album => {
@@ -32,12 +31,11 @@ class AlbumCards extends Component {
                       </p>
                     </div>
                   </div>
-
                   <div className="content">
                     <p>{album.release_date}</p>
-                    <p>
+                    <p key={album.id}>
                       Popularity:
-                      <AlbumPopularity popularity={album.popularity} />
+                      <AlbumPopularity key={album.id} popularity={album.popularity} />
                     </p>
                   </div>
                 </div>

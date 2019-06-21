@@ -44,6 +44,7 @@ class App extends Component {
   }
 
   render() {
+
     const {albums, view, isDefault} = this.state;
 
     return (
@@ -62,24 +63,20 @@ class App extends Component {
                           album => album.id === props.match.params.albumId
                         )[0]
                       }
-                      view={view}
-                      isDefault={isDefault}
-                      getView={this.getView}
                     />
                   )}
                 />
                 <Route
                   path="/albums"
                   render={(props) =>
-                  <AlbumsPage
-                    albums={albums}
-                    view={view}
-                    isDefault={isDefault}
-                    getView={this.getView}
-                    />}
-
+                    <AlbumsPage
+                      albums={albums}
+                      view={view}
+                      isDefault={isDefault}
+                      getView={this.getView}
+                    />
+                  }
                 />
-
                 <Route render={() => <Redirect to="/albums" />} />
               </Switch>
             </BrowserRouter>
