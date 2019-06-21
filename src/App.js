@@ -14,8 +14,11 @@ class App extends Component {
   constructor () {
     super();
     this.state = {
-      albums : []
+      albums : [],
+      view: 'card',
+      isDefault: true
     }
+    this.getView = this.getView.bind(this)
   }
   componentDidMount(){
     this.getAlbums(albumUrl)
@@ -26,9 +29,23 @@ class App extends Component {
     .then(data => this.setState({albums: data}))
     .catch(error => console.log(error))
   }
+  getView(view){
+    if (view === 'card') {
+      this.setState({
+        view:view,
+        isDefault: true
+      })
+    } else {
+      this.setState({
+        view:view,
+        isDefault: false
+      })
+    }
+  }
 
   render() {
-    const {albums} = this.state;
+    const {albums, view, isDefault} = this.state;
+
     return (
       <div>
         <Navbar />
@@ -45,13 +62,24 @@ class App extends Component {
                           album => album.id === props.match.params.albumId
                         )[0]
                       }
+                      view={view}
+                      isDefault={isDefault}
+                      getView={this.getView}
                     />
                   )}
                 />
                 <Route
                   path="/albums"
-                  render={() => <AlbumsPage albums={albums} />}
+                  render={(props) =>
+                  <AlbumsPage
+                    albums={albums}
+                    view={view}
+                    isDefault={isDefault}
+                    getView={this.getView}
+                    />}
+
                 />
+
                 <Route render={() => <Redirect to="/albums" />} />
               </Switch>
             </BrowserRouter>

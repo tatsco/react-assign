@@ -4,6 +4,15 @@ import AlbumTable from "./AlbumTable";
 
 class AlbumsPage extends Component {
   render() {
+    // let toggleComponent;
+    let { view, getView , isDefault} = this.props;
+
+    // if (view === 'card' && isDefault) {
+    //   toggleComponent = <AlbumCards albums={this.props.albums}/>
+    // } else if (view === 'table') {
+    //   toggleComponent = <AlbumTable albums={this.props.albums}/>
+    // }
+
     return (
       <section className="section">
         <div className="container">
@@ -13,12 +22,14 @@ class AlbumsPage extends Component {
             </div>
             <div className="column">
               <div className="buttons has-addons is-right">
-                <span className="button">
+                {/* first button */}
+                <span className="button" onClick={()=>{getView('card')}}>
                   <span className="icon is-medium">
                     <i className="fas fa-th fa-1x" />
                   </span>
                 </span>
-                <span className="button is-selected is-primary">
+                {/* second button */}
+                <span className="button is-selected is-primary" onClick={()=>{getView('table')}}>
                   <span className="icon is-medium">
                     <i className="fas fa-list fa-1x" />
                   </span>
@@ -26,12 +37,8 @@ class AlbumsPage extends Component {
               </div>
             </div>
           </div>
-          <AlbumCards albums={this.props.albums} />
-          {
-            //
-            //<AlbumTable albums={this.props.albums} />
-            //
-          }
+          {/* {toggleComponent} */}
+          {view === 'card' && isDefault ? <AlbumCards albums={this.props.albums}/> : <AlbumTable albums={this.props.albums}/> }
         </div>
       </section>
     );

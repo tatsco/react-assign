@@ -4,6 +4,7 @@ import AlbumPopularity from "./AlbumPopularity";
 
 class AlbumCards extends Component {
   render() {
+
     return (
       <div className="columns is-mobile is-multiline ">
         {this.props.albums.map(album => {

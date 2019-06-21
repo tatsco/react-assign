@@ -4,6 +4,7 @@ import AlbumPopularity from "./AlbumPopularity";
 
 class AlbumTable extends Component {
   render() {
+
     return (
       <table className="table">
         <thead>
@@ -31,7 +32,7 @@ class AlbumTable extends Component {
                   />
                 </td>
                 <td>
-                  <Link to={"/albums/" + album.id}>{album.name}</Link>
+                  <Link to={"/albums/" + album.id} id={"test"}>{album.name}</Link>
                 </td>
                 <td>{album.artists.map(artist => artist.name).join("\n")}</td>
                 <td>{album.releaseDate}</td>
