@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-
 import "bulma/css/bulma.css";
-
 import Navbar from "./components/Navbar";
 import AlbumDetail from "./components/AlbumDetail";
 import AlbumsPage from "./components/AlbumsPage";
-
 import axios from 'axios';
 const albumUrl = 'http://prototypes.inamoto.co/album_data.json';
 
@@ -17,11 +14,11 @@ class App extends Component {
       albums : [],
       view: 'card',
       isDefault: true
-    }
-    this.getView = this.getView.bind(this)
+    };
+    this.getView = this.getView.bind(this);
   }
   componentDidMount(){
-    this.getAlbums(albumUrl)
+    this.getAlbums(albumUrl);
   }
   getAlbums(url){
     axios.get(url)
@@ -32,12 +29,12 @@ class App extends Component {
   getView(view){
     if (view === 'card') {
       this.setState({
-        view:view,
+        view,
         isDefault: true
       })
     } else {
       this.setState({
-        view:view,
+        view,
         isDefault: false
       })
     }

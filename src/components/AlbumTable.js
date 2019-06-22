@@ -37,7 +37,7 @@ class AlbumTable extends Component {
                 <td>{album.artists.map(artist => artist.name).join("\n")}</td>
                 <td>{album.releaseDate}</td>
                 <td>
-                  <AlbumPopularity key={album.id} popularity={album.popularity} />
+                  <AlbumPopularity popularity={album.popularity} />
                 </td>
               </tr>
             );

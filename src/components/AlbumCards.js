@@ -8,7 +8,7 @@ class AlbumCards extends Component {
       <div className="columns is-mobile is-multiline ">
         {this.props.albums.map(album => {
           return (
-            <div key={album.id} className="column is-3">
+            <div key={album.id} className="column is-3" >
               <div className="card">
                 <div className="card-image">
                   <figure className="image is-square">
@@ -33,7 +33,7 @@ class AlbumCards extends Component {
                   </div>
                   <div className="content">
                     <p>{album.release_date}</p>
-                    <p key={album.id}>
+                    <p>
                       Popularity:
                       <AlbumPopularity key={album.id} popularity={album.popularity} />
                     </p>

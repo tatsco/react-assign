@@ -4,6 +4,7 @@ import AlbumTable from "./AlbumTable";
 
 class AlbumsPage extends Component {
   render() {
+
     let { view, getView , isDefault} = this.props;
 
     return (
