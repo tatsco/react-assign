@@ -35,7 +35,7 @@ class AlbumCards extends Component {
                     <p>{album.release_date}</p>
                     <p>
                       Popularity:
-                      <AlbumPopularity key={album.id} popularity={album.popularity} />
+                      <AlbumPopularity popularity={album.popularity} />
                     </p>
                   </div>
                 </div>

@@ -5,7 +5,7 @@ import AlbumTable from "./AlbumTable";
 class AlbumsPage extends Component {
   render() {
 
-    let { view, getView , isDefault} = this.props;
+    let { view, getView } = this.props;
 
     return (
       <section className="section">
@@ -29,7 +29,7 @@ class AlbumsPage extends Component {
               </div>
             </div>
           </div>
-          {view === 'card' && isDefault ? <AlbumCards albums={this.props.albums}/> : <AlbumTable albums={this.props.albums}/> }
+          {view === 'card' ? <AlbumCards albums={this.props.albums}/> : <AlbumTable albums={this.props.albums}/> }
         </div>
       </section>
     );

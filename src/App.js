@@ -12,8 +12,7 @@ class App extends Component {
     super();
     this.state = {
       albums : [],
-      view: 'card',
-      isDefault: true
+      view: 'card'
     };
     this.getView = this.getView.bind(this);
   }
@@ -27,22 +26,14 @@ class App extends Component {
     .catch(error => console.log(error))
   }
   getView(view){
-    if (view === 'card') {
-      this.setState({
-        view,
-        isDefault: true
-      })
-    } else {
-      this.setState({
-        view,
-        isDefault: false
-      })
-    }
+    this.setState({
+      view,
+    })
   }
 
   render() {
 
-    const {albums, view, isDefault} = this.state;
+    const { albums, view } = this.state;
 
     return (
       <div>
@@ -69,7 +60,6 @@ class App extends Component {
                     <AlbumsPage
                       albums={albums}
                       view={view}
-                      isDefault={isDefault}
                       getView={this.getView}
                     />
                   }
