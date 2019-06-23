@@ -4,9 +4,13 @@ import AlbumPopularity from "./AlbumPopularity";
 
 class AlbumDetail extends Component {
   render() {
-    if (!this.props.album) {
+
+    let { album } = this.props;
+
+    if (!album) {
       return <Redirect to="/albums" />;
     }
+
     return (
       <div>
         <nav className="breadcrumb is-large" aria-label="breadcrumbs">
@@ -26,28 +30,28 @@ class AlbumDetail extends Component {
           <div className="column is-4">
             <figure className="image is-square">
               <img
-                src={this.props.album.image.url}
-                width={this.props.album.image.width}
-                height={this.props.album.image.height}
-                alt={this.props.album.name + " album cover"}
+                src={album.image.url}
+                width={album.image.width}
+                height={album.image.height}
+                alt={album.name + " album cover"}
               />
             </figure>
           </div>
           <div className="column is-8">
-            <div className="title is-3">{this.props.album.name}</div>
+            <div className="title is-3">{album.name}</div>
             <div className="subtitle is-5">
-              {this.props.album.artists.map(artist => (
+              {album.artists.map(artist => (
                 <p key={artist.id}>{artist.name}</p>
               ))}
             </div>
             <p>
               Popularity:{" "}
-              <AlbumPopularity popularity={this.props.album.popularity} />
+              <AlbumPopularity popularity={album.popularity} />
             </p>
             <hr />
             <div className="title is-5">Tracks</div>
             <ul className="subtitle is-5">
-              {this.props.album.tracks.map(track => (
+              {album.tracks.map(track => (
                 <li key={track.id}>{track.name}</li>
               ))}
             </ul>

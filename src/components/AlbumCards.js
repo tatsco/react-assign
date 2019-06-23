@@ -4,9 +4,12 @@ import AlbumPopularity from "./AlbumPopularity";
 
 class AlbumCards extends Component {
   render() {
+
+    let { albums } = this.props;
+
     return (
       <div className="columns is-mobile is-multiline ">
-        {this.props.albums.map(album => {
+        {albums.map(album => {
           return (
             <div key={album.id} className="column is-3" >
               <div className="card">

@@ -5,7 +5,7 @@ import AlbumTable from "./AlbumTable";
 class AlbumsPage extends Component {
   render() {
 
-    let { view, getView } = this.props;
+    let { view, setView } = this.props;
 
     return (
       <section className="section">
@@ -16,12 +16,12 @@ class AlbumsPage extends Component {
             </div>
             <div className="column">
               <div className="buttons has-addons is-right">
-                <span className="button" onClick={()=>{getView('card')}}>
+                <span className={view === 'card' ? "button is-selected is-primary" : "button"} onClick={()=>{setView('card')}}>
                   <span className="icon is-medium">
                     <i className="fas fa-th fa-1x" />
                   </span>
                 </span>
-                <span className="button is-selected is-primary" onClick={()=>{getView('table')}}>
+                <span className={view === 'table' ? "button is-selected is-primary" : "button" } onClick={()=>{setView('table')}}>
                   <span className="icon is-medium">
                     <i className="fas fa-list fa-1x" />
                   </span>

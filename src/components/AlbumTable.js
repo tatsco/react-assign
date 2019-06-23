@@ -5,6 +5,8 @@ import AlbumPopularity from "./AlbumPopularity";
 class AlbumTable extends Component {
   render() {
 
+    let { albums } = this.props;
+
     return (
       <table className="table">
         <thead>
@@ -17,7 +19,7 @@ class AlbumTable extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.albums.map(album => {
+          {albums.map(album => {
             return (
               <tr key={album.id}>
                 <td

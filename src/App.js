@@ -11,21 +11,21 @@ class App extends Component {
   constructor () {
     super();
     this.state = {
-      albums : [],
+      albums: [],
       view: 'card'
     };
-    this.getView = this.getView.bind(this);
+    this.setView = this.setView.bind(this);
   }
   componentDidMount(){
     this.getAlbums(albumUrl);
   }
   getAlbums(url){
     axios.get(url)
-    .then(response => response.data)
-    .then(data => this.setState({albums: data}))
-    .catch(error => console.log(error))
+      .then(response => response.data)
+      .then(data => this.setState({albums: data}))
+      .catch(error => console.log(error))
   }
-  getView(view){
+  setView(view){
     this.setState({
       view,
     })
@@ -60,7 +60,7 @@ class App extends Component {
                     <AlbumsPage
                       albums={albums}
                       view={view}
-                      getView={this.getView}
+                      setView={this.setView}
                     />
                   }
                 />

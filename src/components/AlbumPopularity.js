@@ -18,11 +18,7 @@ class AlbumPopularity extends Component {
       starArray.push(outlinedStar)
     }
 
-   return (
-     starArray.map(star => {
-       return star
-     })
-   )
+   return starArray;
   }
 }
 
